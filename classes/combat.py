@@ -62,7 +62,6 @@ class Combat():
 
 # Exemple de création d'un joueur et d'un ennemi
 # Création d'une instance de la classe Joueur
-
 """
 joueur = Joueur(
     nom="Héros",               # Nom du joueur
@@ -77,7 +76,7 @@ joueur = Joueur(
     experience_next_niveau=100 # Expérience nécessaire pour monter de niveau
 )
 # Création d'un ennemi Gobelin
-ennemi = Ennemi(
+gobelin = Ennemi(
     nom="Gobelin",
     age=25,
     point_de_vie=50,
@@ -92,7 +91,7 @@ ennemi = Ennemi(
     loot=[]  # Pas de loot à donner à ce stade
 )
 # Création d'une instance de la classe Combat
-combat = Combat(joueur, ennemi)
+#combat = Combat(joueur, ennemi)
 # Lancer le combat
-combat.tour_par_tour()
+#combat.tour_par_tour()
 """

@@ -1,4 +1,5 @@
 from perso import Personnage
+from objet import *
 
 
 class Ennemi(Personnage):
@@ -46,3 +47,110 @@ class Ennemi(Personnage):
     
     def attaque(self,cible):
         print(f"{self.nom} attaque {cible.nom}")
+
+
+# Création d'un ennemi Gobelin
+gobelin = Ennemi(
+    nom="Gobelin",
+    age=25,
+    point_de_vie=50,
+    force=30,
+    defense=5,
+    inventaire=[],  # Pas d'inventaire pour cet ennemi
+    est_vivant=True,
+    niveau=1,
+    point_de_vie_max=50,
+    type_ennemi="gobelin",  # Type d'ennemi valide
+    experience_to_give=20,  # Expérience donnée quand tué
+    loot=[Baton]  # Pas de loot à donner à ce stade
+)
+# Creation d'ennemi squelette
+squelette = Ennemi(
+    nom="Squelette",
+    age=120,
+    point_de_vie=20,
+    force=10,
+    defense=5,
+    inventaire=[], 
+    est_vivant=True,
+    niveau=3,
+    point_de_vie_max=50,
+    type_ennemi="squelette",  # Type d'ennemi valide
+    experience_to_give=30,  # Expérience donnée quand tué
+    loot=[Couteau]
+)  
+
+orc = Ennemi(
+    nom="Orc",
+    age=30,
+    point_de_vie=80,
+    force=15,
+    defense=8,
+    inventaire=[],  # Le loot de l'orc
+    est_vivant=True,
+    niveau=2,
+    point_de_vie_max=80,
+    type_ennemi="orc",
+    experience_to_give=20,
+    loot=[piece_d_or]
+)
+
+loup = Ennemi(
+    nom="Loup",
+    age=5,
+    point_de_vie=40,
+    force=12,
+    defense=5,
+    inventaire=[],  # Pas de loot pour ce loup
+    est_vivant=True,
+    niveau=1,
+    point_de_vie_max=40,
+    type_ennemi="loup",
+    experience_to_give=15,
+    loot=[]  # Pas de loot
+)
+
+goule = Ennemi(
+    nom="Goule",
+    age=50,
+    point_de_vie=60,
+    force=10,
+    defense=6,
+    inventaire=[],  # Loot pour la goule
+    est_vivant=True,
+    niveau=2,
+    point_de_vie_max=60,
+    type_ennemi="goule",
+    experience_to_give=25,
+    loot=[potion_de_soin]
+)
+
+troll = Ennemi(
+    nom="Troll",
+    age=40,
+    point_de_vie=120,
+    force=20,
+    defense=12,
+    inventaire=[],  # Loot du troll
+    est_vivant=True,
+    niveau=3,
+    point_de_vie_max=120,
+    type_ennemi="troll",
+    experience_to_give=30,
+    loot=[Armure_de_cuir, Epee]
+)
+
+dragon = Ennemi(
+    nom="Dragon",
+    age=500,
+    point_de_vie=300,
+    force=50,
+    defense=20,
+    inventaire=[],  # Loot du dragon
+    est_vivant=True,
+    niveau=10,
+    point_de_vie_max=300,
+    type_ennemi="dragon",
+    experience_to_give=100,
+    loot=[Armure_de_fer, Epee,Couteau,potion_de_soin]
+)

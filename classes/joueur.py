@@ -1,13 +1,10 @@
 
-from perso import Personnage
+from .perso import Personnage
 import numpy as np
 
 class Joueur(Personnage):
-    #construteur classe joueur
-    def __init__(self,nom,age,point_de_vie,force,defense,inventaire,est_vivant,niveau,experience,experience_next_niveau):
-        # appel du constructeur de la classe parent
-        super().__init__(nom,age,point_de_vie,force,defense,inventaire,est_vivant)
-        # ajout des attributs de la classe joueur
+    def __init__(self, nom, age, point_de_vie, force, defense, inventaire, est_vivant, niveau, experience, experience_next_niveau):
+        super().__init__(nom, age, point_de_vie, force, defense, inventaire, est_vivant)
         self.niveau = niveau
         self.experience = experience
         self.experience_next_niveau = experience_next_niveau

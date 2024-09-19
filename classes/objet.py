@@ -1,4 +1,6 @@
 from perso import Personnage
+from joueur import Joueur
+
 
 class Objet:
     def __init__(self,nom,description,effet):
@@ -6,14 +8,15 @@ class Objet:
         self.description = description
         self.effet = effet
 
+
     def utiliser(Personnage):
         print(f"{Personnage.nom} utilise {self.nom} avec l'effet {self.effet}")
         
 
 
 class Arme(Objet):
-    def __init0__(self,nom,description,effet,dommage):
-        super().__init__(nom,description,effet)
+    def __init__(self, nom, description, effet, dommage):
+        super().__init__(nom, description, effet)
         self.dommage = dommage
 
     def equiper(self,personnage):
@@ -24,11 +27,11 @@ class Arme(Objet):
 class Armure(Objet):
     def __init__(self,nom,description,effet,defense):
         super().__init__(nom,description,effet)
-        print(f'Armure {nom} est équipée par {personnage.nom}')
         self.defense = defense
 
     def equiper(self,personnage):
         personnage.defense += self.defense
+        print(f'Armure {self.nom} est équipée par {personnage.nom}')
         return personnage.defense
 
 
@@ -37,10 +40,10 @@ class Potion(Objet):
         super().__init__(nom,description,effet)
         self.soin = soin
 
-        def utiliser(self,personnage):
-            personnage.point_de_vie += self.soin
-            print(f'{personnage.nom} a utilisé {self.nom} et a été soigné de {self.soin} points de vie')
-            return personnage.point_de_vie
+    def utiliser(self,personnage):
+        personnage.point_de_vie += self.soin
+        print(f'{personnage.nom} a utilisé {self.nom} et a été soigné de {self.soin} points de vie')
+        return personnage.point_de_vie
 
 
 #Instancer du loot
@@ -50,10 +53,11 @@ piece_d_or=Objet(
     effet="argent",
     )
 
-potion_de_soin=Objet(
+potion_de_soin=Potion(
     nom="Potion de soin",
     description="Restaure 30 point de vie",
     effet="soin",
+    soin=20
     ) 
 
 Baton=Arme(
@@ -97,3 +101,29 @@ Armure_de_fer=Armure(
     effet="defense",
     defense=10
     )
+
+Protection_tissue = Armure(
+    nom="Protection en tissu",
+    description="Armure légère faite de tissu.",
+    effet="defense",
+    defense=2
+)
+
+# ****** ZONE DE TEST ******
+# Créer un personnage
+joueur = Joueur (
+    nom="Héros",
+    age=25,
+    point_de_vie=100,
+    force=10,
+    defense=5,
+    inventaire=[],
+    est_vivant=True,
+    niveau=1,
+    experience=0,
+    experience_next_niveau=100
+)
+
+# Équiper l'armure
+Protection_tissue.equiper(joueur)
+
