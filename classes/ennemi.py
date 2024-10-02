@@ -1,5 +1,5 @@
-from perso import Personnage
-from objet import *
+from .perso import Personnage
+from .objet import *
 
 
 class Ennemi(Personnage):

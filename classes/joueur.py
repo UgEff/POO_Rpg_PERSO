@@ -1,10 +1,12 @@
 
 from .perso import Personnage
+from .inventaire import Inventaire
 import numpy as np
 
 class Joueur(Personnage):
     def __init__(self, nom, age, point_de_vie, force, defense, inventaire, est_vivant, niveau, experience, experience_next_niveau):
         super().__init__(nom, age, point_de_vie, force, defense, inventaire, est_vivant)
+        self.inventaire=Inventaire()
         self.niveau = niveau
         self.experience = experience
         self.experience_next_niveau = experience_next_niveau

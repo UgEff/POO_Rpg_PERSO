@@ -1,6 +1,6 @@
 # RPG en Python (POO)
 
-Ce projet est un jeu de rôle simple (RPG) développé en Python, utilisant la Programmation Orientée Objet (POO). Le jeu permet au joueur de créer un personnage, d'affronter des ennemis, de gagner de l'expérience, et de récupérer et utiliser du loot.
+Ce projet est un jeu de rôle simple (RPG) développé en Python, utilisant la Programmation Orientée Objet (POO). Le jeu permet au joueur de créer un personnage, d'affronter des ennemis, de gagner de l'expérience, et de récupérer et utiliser du loot tout en faisait un peu d'exploration.
 
 ## Fonctionnalités
 
@@ -9,6 +9,7 @@ Ce projet est un jeu de rôle simple (RPG) développé en Python, utilisant la P
 - **Gain d'XP** : Après avoir vaincu un ennemi, le joueur gagne de l'expérience.
 - **Loot** : Les ennemis vaincus laissent tomber du loot que le joueur peut récupérer.
 - **Utilisation du loot** : Le joueur peut utiliser des objets récupérés pour améliorer ses chances de survie.
+- **Exploration** : le joueur a la posibilité de visiter des lieux.
 
 ## Fonctionnement
 

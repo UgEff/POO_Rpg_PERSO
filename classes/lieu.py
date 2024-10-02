@@ -25,9 +25,9 @@ class Lieu():
         if not self.objet:
             print("il n'y a aucun objet ici")
         else:
-            print(" vous voyer des objets dnas la piece")
+            print(" vous voyer des objets dans la piece")
             for obj in self.objet:
-                print(f"{objet.nom}: {objet.description}")
+                print(f"{obj.nom}: {obj.description}")
 
     def ennemi_apparition(self):
         ennemi_present=[]
@@ -35,31 +35,6 @@ class Lieu():
             if rd.random() < taux_apparition:
                 ennemi_present.append(ennemi)
         return ennemi_present
-
-
-# Creation d'instance de lieu
-village = Lieu(
-    nom="Village principal",
-    description="Le village où le personnage est né et a grandi",
-    ennemi=[], 
-    objet=[potion_de_soin] 
-)
-
-
-foret = Lieu(
-    nom="Forêt au bord du village",
-    description="Un endroit sombre rempli de créatures.",
-    ennemi=[(gobelin, 0.5), (squelette, 0.3), (orc, 0.1), (dragon, 0.1)],
-    objet=[] 
-)
-
-
-caverne = Lieu(
-    nom="Caverne sombre",
-    description="Une caverne remplie de dangers inconnus.",
-    ennemi=[(squelette, 0.4), (gobelin, 0.2)],
-    objet=[Epee]
-)
 
 
 

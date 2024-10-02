@@ -1,5 +1,5 @@
-from perso import Personnage
-from joueur import Joueur
+from .perso import Personnage
+
 
 
 class Objet:
@@ -109,21 +109,4 @@ Protection_tissue = Armure(
     defense=2
 )
 
-# ****** ZONE DE TEST ******
-# Créer un personnage
-joueur = Joueur (
-    nom="Héros",
-    age=25,
-    point_de_vie=100,
-    force=10,
-    defense=5,
-    inventaire=[],
-    est_vivant=True,
-    niveau=1,
-    experience=0,
-    experience_next_niveau=100
-)
-
-# Équiper l'armure
-Protection_tissue.equiper(joueur)
 
