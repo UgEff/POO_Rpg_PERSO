@@ -101,15 +101,57 @@ while hero.est_vivant:
                 
 
 
-        elif choix_lieu == "2": # Foret 
-            foret.decrire()
-            print(f"que voulais vous faire {hero.nom} ?")
-            print("1. Voir les ennemies \n 2. Fouiller \n 3. Partir")
-            choix_action_lieu=input("entrer votre choix : ")
+        elif choix_lieu == "2":  # Forêt
+            foret.decrire()  # Décrit la forêt
+            print(f"Que voulez-vous faire {hero.nom} ?")
+            print("1. Voir les ennemis\n2. Fouiller\n3. Partir")
+            choix_action_lieu = input("Entrez votre choix : ")
 
-            #action dans la foret
-            if choix_action_lieu=="1":
-                foret.list_ennemis()
+            # Action dans la forêt
+            if choix_action_lieu == "1":  # Voir les ennemis
+                ennemis_present = foret.list_ennemis()  # Liste des ennemis présents
+                if not ennemis_present:
+                    print("Il n'y a pas d'ennemis ici.")
+                else:
+                    print("Que voulez-vous faire ?")
+                    print("1. Attaquer un ennemi\n2. Partir")
+                    choix_combat = input("Entrez votre choix : ")
+
+                    if choix_combat == "1":  # Combattre un ennemi
+                        print("Quel ennemi voulez-vous attaquer ?")
+                        for index, ennemi in enumerate(ennemis_present):
+                            print(f"{index + 1}. {ennemi.nom} (Niveau {ennemi.niveau})")
+
+                        choix_ennemi = input("Entrez le numéro de l'ennemi à attaquer : ")
+                        try:
+                            ennemi_a_combattre = ennemis_present[int(choix_ennemi) - 1]
+                            # Lancer le combat
+                            combat = Combat(hero, ennemi_a_combattre)
+                            combat.tour_par_tour()
+                        except (ValueError, IndexError):
+                            print("Choix invalide, vous ne pouvez pas combattre cet ennemi.")
+                    else:
+                        print("Vous avez choisi de partir.")
+
+            elif choix_action_lieu == "2":  # Fouiller
+                foret.list_objet()  # Liste les objets disponibles
+                print(f"Que voulez-vous faire {hero.nom} ?")
+                print("1. Prendre un objet\n2. Ne rien faire")
+                choix_objet = input("Entrez votre choix : ")
+
+                if choix_objet == "1":
+                    foret.list_objet()
+                    choix_objet_a_prendre = input("Quel objet prendre ? (numéro) : ")
+                    try:
+                        objet_a_prendre = foret.objet.pop(int(choix_objet_a_prendre) - 1)
+                        hero.inventaire.ajouter_objet(objet_a_prendre)
+                        print(f"Vous avez pris {objet_a_prendre.nom} !")
+                    except (ValueError, IndexError):
+                        print("Choix invalide, il n'y a pas d'objet à prendre.")
+
+            elif choix_action_lieu == "3":  # Partir
+                print("Vous quittez la forêt.")
+
 
 
         elif choix_lieu == "3":
